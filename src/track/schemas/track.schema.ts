@@ -10,10 +10,10 @@ export class Track {
     name: string;
 
     @Prop()
-    artist: number;
+    artist: string;
 
     @Prop()
-    track: string;
+    text: string;
 
     @Prop()
     listens: string;

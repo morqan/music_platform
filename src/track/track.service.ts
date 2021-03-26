@@ -43,12 +43,14 @@ export class TrackService {
    async listen(id: ObjectId) {
         const track = await this.trackModel.findById(id)
         track.listens += 1
+       console.log(track.listens)
         await track.save()
     }
 
    async search(query: string): Promise<Track[]> {
         const tracks = await this.trackModel.find({
-            name: {$regex: new RegExp(query, 'i')}
+            name: {$regex: new RegExp(query, 'i')},
+            artist: {$regex: new RegExp(query, 'i')}
         })
        return tracks
     }
